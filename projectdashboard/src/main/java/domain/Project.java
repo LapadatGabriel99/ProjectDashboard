@@ -1,9 +1,12 @@
 package domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -15,30 +18,39 @@ public class Project {
 
     @Setter
     @Getter
+    @NotBlank(message = "Project name is required")
     private String projectName;
 
     @Setter
     @Getter
+    @NotBlank(message = "Project identifier is required")
+    @Size(min = 4, max = 5, message = "Please use 4 to 5 characters")
+    @Column(updatable = false, unique = true)
     private String projectIdentifier;
 
     @Setter
     @Getter
+    @NotBlank(message = "Project description is required")
     private String description;
 
     @Setter
     @Getter
+    @JsonFormat(pattern ="yyyy-mm-dd")
     private Date startDate;
 
     @Setter
     @Getter
+    @JsonFormat(pattern ="yyyy-mm-dd")
     private Date endDate;
 
     @Setter
     @Getter
+    @JsonFormat(pattern ="yyyy-mm-dd")
     private Date createdAt;
 
     @Setter
     @Getter
+    @JsonFormat(pattern ="yyyy-mm-dd")
     private Date updatedAt;
 
     @PrePersist

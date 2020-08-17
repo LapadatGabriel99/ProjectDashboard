@@ -6,7 +6,10 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import repositories.ProjectRepository;
 
-@SpringBootApplication(scanBasePackages = {"web.api.controllers", "services"})
+@SpringBootApplication(scanBasePackages = {
+		"web.api.controllers",
+		"services"
+})
 @EnableJpaRepositories(basePackageClasses = {
 		ProjectRepository.class
 })
