@@ -2,6 +2,8 @@ package web.validation;
 
 import org.springframework.validation.BindingResult;
 
+import java.util.Map;
+
 public interface ValidationTool {
-    void validate(BindingResult result);
+    Map<String, String> validate(BindingResult result);
 }

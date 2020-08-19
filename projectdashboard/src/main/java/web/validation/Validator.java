@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.validation.BindingResult;
 
+import java.util.Map;
+
 public class Validator {
 
     @Getter
@@ -14,7 +16,7 @@ public class Validator {
         this.tool = tool;
     }
 
-    public void validate(BindingResult result) {
-        tool.validate(result);
+    public Map<String, String> validate(BindingResult result) {
+        return tool.validate(result);
     }
 }
